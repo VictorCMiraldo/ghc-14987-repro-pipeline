@@ -1,0 +1,97 @@
+{-# LANGUAGE MultiParamTypeClasses  #-}
+{-# LANGUAGE LambdaCase             #-}
+{-# LANGUAGE FlexibleInstances      #-}
+{-# LANGUAGE FlexibleContexts       #-}
+{-# LANGUAGE TypeSynonymInstances   #-}
+{-# LANGUAGE RankNTypes             #-}
+{-# LANGUAGE StandaloneDeriving     #-}
+{-# LANGUAGE TypeFamilies           #-}
+{-# LANGUAGE TypeOperators          #-}
+{-# LANGUAGE TypeApplications       #-}
+{-# LANGUAGE DataKinds              #-}
+{-# LANGUAGE PolyKinds              #-}
+{-# LANGUAGE GADTs                  #-}
+{-# LANGUAGE ScopedTypeVariables    #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE PatternSynonyms        #-}
+module Minimal where
+
+import GHC.TypeLits (TypeError, ErrorMessage (..))
+import Data.Proxy
+
+data Nat = S Nat | Z
+  deriving (Eq , Show)
+
+data SNat :: Nat -> * where
+  SZ ::           SNat Z
+  SS :: SNat n -> SNat (S n)
+
+type family Lkup (n :: Nat) (ks :: [k]) :: k where
+  Lkup Z     (k : ks) = k
+  Lkup (S n) (k : ks) = Lkup n ks
+  Lkup _     '[]      = TypeError (Text "Lkup index too big")
+
+data El :: [*] -> Nat -> * where
+  El ::  {unEl :: Lkup ix fam} -> El fam ix
+
+data NS :: (k -> *) -> [k] -> * where
+  T :: NS p xs -> NS p (x : xs)
+  H  :: p x     -> NS p (x : xs)
+
+infixr 5 :*
+data NP :: (k -> *) -> [k] -> * where
+  NP0  :: NP p '[]
+  (:*) :: p x -> NP p xs -> NP p (x : xs)
+
+data Atom kon
+  = K kon
+  | I Nat
+  deriving (Eq, Show)
+
+data NA  :: (kon -> *) -> (Nat -> *) -> Atom kon -> * where
+  NA_I :: phi k -> NA ki phi (I k) 
+  NA_K :: ki  k -> NA ki phi (K k)
+
+data Kon
+  = KInt
+  | KInteger
+  | KFloat
+  | KDouble
+  | KBool
+  | KChar
+  | KString
+  deriving (Eq , Show)
+
+
+data Singl (kon :: Kon) :: * where
+  SInt     :: Int     -> Singl KInt
+  SInteger :: Integer -> Singl KInteger
+  SFloat   :: Float   -> Singl KFloat
+  SDouble  :: Double  -> Singl KDouble
+  SBool    :: Bool    -> Singl KBool
+  SChar    :: Char    -> Singl KChar
+  SString  :: String  -> Singl KString
+
+deriving instance Show (Singl k)
+deriving instance Eq   (Singl k)
+
+eqSingl :: Singl k -> Singl k -> Bool
+eqSingl = (==)
+
+class Family (ki :: kon -> *) (fam :: [*]) (codes :: [[[Atom kon]]])
+      | fam -> ki codes , ki codes -> fam
+  where
+    sto'   :: SNat ix -> Rep ki (El fam) (Lkup ix codes) -> El fam ix
+    sfrom' :: SNat ix -> El fam ix -> Rep ki (El fam) (Lkup ix codes)
+
+newtype Rep (ki :: kon -> *) (phi :: Nat -> *) (code :: [[Atom kon]])
+  = Rep { unRep :: NS (PoA ki phi) code }
+
+type PoA (ki :: kon -> *) (phi :: Nat -> *) = NP (NA ki phi)
+
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+

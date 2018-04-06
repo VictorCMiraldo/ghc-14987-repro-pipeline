@@ -1,0 +1,25 @@
+#! /bin/bash
+
+## Processes the output of a -ddump-splices into a minimal
+## example.
+##
+## File name must be name.Type, where Type is the file that
+## contains the datatype definition to be appended.
+
+if [[ "$#" -ne "1" ]]; then
+  echo "I need a file!"
+  exit 1
+fi
+
+fullfile="$1"
+file=$(basename $fullfile)
+name=${file%%.*}
+datatype=${file##*.}
+
+if [[ ! -e "$datatype" ]]; then
+  echo "I don't have the data definition available here. Make sure"
+  echo "there is a file named '$datatype' in my directory"
+  exit 1
+fi
+
+sed -f processing.sed "$fullfile" | cat Defs $datatype - > "Processed/$name.hs"
