@@ -89,16 +89,33 @@ pattern PatAB x = There (Here x)
 ## Processed/Minimal32
 
   We were confident we found a decent hack, and tried compiling
-our big examples. With the same pattern synonyms as `Minimal31`, 
-we generated `Minimal32` with a bigger number of cases.
+our big examples. Yet, GHC broke in extraordianry ways. We are receiving
+type-errors when trying to compile our full code. We generated this repro
+to try to trigger this errors here aswell, but it seems to compile just fine.
+We will try to make the library code available ASAP so people can reproduce
+this behavior.
 
-  - Consumes about 7 GB of ram.
+  Nevertheless, `Minimal32` has the same pattern synonyms as `Minimal31`,
+but it has many more patterns.
 
-## Processed/Minimal4
+  - This reproducible consumes about 7 GB of ram. 
+
+  - The library code which this reproducible comes from does not compile.
+    GHC says it has type errors ("kind-mismatch" and "could not deduce Lkup l x ~ x"). This is seriously weird. A dump of the errors can be found in
+    `Raw/Minimal32Errors`.
+
+## Processed/Minimal41
 
   Trying to make the compiler life easier, we have added type-signatures
 to our `H/T` pattern synonyms. This has the same *size* as `Minimal1`,
 and requires about 65% less memory than `Minimal1.hs`.
+
+## Processed/Minimal42
+
+  Just like `Minimal32`, but with the pattern synonym specialised 
+type signatures, yet, it consumes about 10GB of memory. 
+
+  - Shouldn't it consume even less memory?
 
 # Processing a `-ddump-splices`
 
