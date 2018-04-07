@@ -26,6 +26,14 @@
 
 # Differences between reproducibles
 
+  The files under `Example` illustrate the addition of information 
+from each reproducible to the next. In summary:
+
+  - **from 1 to 2:** added pattern synonyms for `Nat` and their singletons.
+  - **from 2 to 3:** added pattern synonyms for injections into `NS`.
+  - **from 3 to 4:** added type signatures to the pattern synonyms for
+                     `NS` injections.
+
 ## Processed/Minimal1 
 
   -  Analogous to the example attached in [our trac ticket](https://ghc.haskell.org/trac/ghc/ticket/14987). It is a little messier since it was generated
