@@ -39,7 +39,7 @@ by scripts.
 ## Processed/Minimal2
 
   Trying to avoid the exhaustiveness checker we decided to introduce
-a number of type and pattern synonyms for the |Nat| kind and |SNat| type:
+a number of type and pattern synonyms for the `Nat` kind and `SNat` type:
 
 ```haskell
 data Nat = Z | S Nat
@@ -101,8 +101,7 @@ but it has many more patterns.
   - This reproducible consumes about 7 GB of ram. 
 
   - The library code which this reproducible comes from does not compile.
-    GHC says it has type errors ("kind-mismatch" and "could not deduce Lkup l x ~ x"). This is seriously weird. A dump of the errors can be found in
-    `Raw/Minimal32Errors`.
+    GHC says it has type errors (dump available in `Raw/Minimal32Errors`). This is seriously weird.
 
 ## Processed/Minimal41
 
