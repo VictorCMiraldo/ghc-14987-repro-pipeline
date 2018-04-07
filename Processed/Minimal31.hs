@@ -14,6 +14,7 @@
 {-# LANGUAGE ScopedTypeVariables    #-}
 {-# LANGUAGE FunctionalDependencies #-}
 {-# LANGUAGE PatternSynonyms        #-}
+{-# LANGUAGE EmptyCase              #-}
 module Minimal where
 
 import GHC.TypeLits (TypeError, ErrorMessage (..))

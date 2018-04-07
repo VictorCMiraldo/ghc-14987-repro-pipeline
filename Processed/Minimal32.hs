@@ -14,6 +14,7 @@
 {-# LANGUAGE ScopedTypeVariables    #-}
 {-# LANGUAGE FunctionalDependencies #-}
 {-# LANGUAGE PatternSynonyms        #-}
+{-# LANGUAGE EmptyCase              #-}
 module Minimal where
 
 import GHC.TypeLits (TypeError, ErrorMessage (..))
@@ -818,13 +819,13 @@ instance Family Singl FamGoSource CodesGoSource where
                  -> Rep (Pat1GoId ((NA_K (SString x_abTt)) :* NP0))
         IdxListGoPrel
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat29193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abTu x_abTv))
+               (El []) -> Rep (Pat29193 NP0)
+               (El ((:) x_abTu x_abTv))
                  -> Rep (Pat258 ((NA_I (El x_abTu)) :* ((NA_I (El x_abTv)) :* NP0)))
         IdxListGoDecl
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat39193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abTw x_abTx))
+               (El []) -> Rep (Pat39193 NP0)
+               (El ((:) x_abTw x_abTx))
                  -> Rep (Pat358 ((NA_I (El x_abTw)) :* ((NA_I (El x_abTx)) :* NP0)))
         IdxGoPrel
           -> \case
@@ -836,8 +837,8 @@ instance Family Singl FamGoSource CodesGoSource where
                (El GoIfPrel) -> Rep (Pat4GoIfPrel NP0)
         IdxListGoImpSpec
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat59193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abTA x_abTB))
+               (El []) -> Rep (Pat59193 NP0)
+               (El ((:) x_abTA x_abTB))
                  -> Rep (Pat558 ((NA_I (El x_abTA)) :* ((NA_I (El x_abTB)) :* NP0)))
         IdxGoImpSpec
           -> \case
@@ -870,14 +871,14 @@ instance Family Singl FamGoSource CodesGoSource where
                  -> Rep (Pat9GoMeth ((NA_I (El x_abTL)) :* NP0))
         IdxListGoCVSpec
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat109193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abTM x_abTN))
+               (El []) -> Rep (Pat109193 NP0)
+               (El ((:) x_abTM x_abTN))
                  -> Rep
                       (Pat1058 ((NA_I (El x_abTM)) :* ((NA_I (El x_abTN)) :* NP0)))
         IdxListGoTypeSpec
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat119193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abTO x_abTP))
+               (El []) -> Rep (Pat119193 NP0)
+               (El ((:) x_abTO x_abTP))
                  -> Rep
                       (Pat1158 ((NA_I (El x_abTO)) :* ((NA_I (El x_abTP)) :* NP0)))
         IdxGoFuncDecl
@@ -905,8 +906,8 @@ instance Family Singl FamGoSource CodesGoSource where
                             :* ((NA_I (El x_abTY)) :* ((NA_I (El x_abTZ)) :* NP0))))
         IdxListGoId
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat159193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abU0 x_abU1))
+               (El []) -> Rep (Pat159193 NP0)
+               (El ((:) x_abU0 x_abU1))
                  -> Rep
                       (Pat1558 ((NA_I (El x_abU0)) :* ((NA_I (El x_abU1)) :* NP0)))
         IdxMaybeGoType
@@ -915,8 +916,8 @@ instance Family Singl FamGoSource CodesGoSource where
                (El (Just x_abU2)) -> Rep (Pat16Just ((NA_I (El x_abU2)) :* NP0))
         IdxListGoExpr
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat179193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abU3 x_abU4))
+               (El []) -> Rep (Pat179193 NP0)
+               (El ((:) x_abU3 x_abU4))
                  -> Rep
                       (Pat1758 ((NA_I (El x_abU3)) :* ((NA_I (El x_abU4)) :* NP0)))
         IdxGoType
@@ -973,14 +974,14 @@ instance Family Singl FamGoSource CodesGoSource where
                       (Pat21GoSig ((NA_I (El x_abUp)) :* ((NA_I (El x_abUq)) :* NP0)))
         IdxListGoMethSpec
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat229193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abUr x_abUs))
+               (El []) -> Rep (Pat229193 NP0)
+               (El ((:) x_abUr x_abUs))
                  -> Rep
                       (Pat2258 ((NA_I (El x_abUr)) :* ((NA_I (El x_abUs)) :* NP0)))
         IdxListGoFieldType
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat239193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abUt x_abUu))
+               (El []) -> Rep (Pat239193 NP0)
+               (El ((:) x_abUt x_abUu))
                  -> Rep
                       (Pat2358 ((NA_I (El x_abUt)) :* ((NA_I (El x_abUu)) :* NP0)))
         IdxGoPrim
@@ -1067,8 +1068,8 @@ instance Family Singl FamGoSource CodesGoSource where
                          ((NA_I (El x_abV8)) :* ((NA_I (El x_abV9)) :* NP0)))
         IdxListGoElement
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat299193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abVa x_abVb))
+               (El []) -> Rep (Pat299193 NP0)
+               (El ((:) x_abVa x_abVb))
                  -> Rep
                       (Pat2958 ((NA_I (El x_abVa)) :* ((NA_I (El x_abVb)) :* NP0)))
         IdxGoElement
@@ -1097,8 +1098,8 @@ instance Family Singl FamGoSource CodesGoSource where
                (El GoNoBlock) -> Rep (Pat33GoNoBlock NP0)
         IdxListGoParam
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat349193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abVj x_abVk))
+               (El []) -> Rep (Pat349193 NP0)
+               (El ((:) x_abVj x_abVk))
                  -> Rep
                       (Pat3458 ((NA_I (El x_abVj)) :* ((NA_I (El x_abVk)) :* NP0)))
         IdxGoParam
@@ -1108,8 +1109,8 @@ instance Family Singl FamGoSource CodesGoSource where
                       (Pat35GoParam ((NA_I (El x_abVl)) :* ((NA_I (El x_abVm)) :* NP0)))
         IdxListGoStmt
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat369193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abVn x_abVo))
+               (El []) -> Rep (Pat369193 NP0)
+               (El ((:) x_abVn x_abVo))
                  -> Rep
                       (Pat3658 ((NA_I (El x_abVn)) :* ((NA_I (El x_abVo)) :* NP0)))
         IdxGoStmt
@@ -1196,20 +1197,20 @@ instance Family Singl FamGoSource CodesGoSource where
                (El (Just x_abVZ)) -> Rep (Pat41Just ((NA_I (El x_abVZ)) :* NP0))
         IdxListGoCaseGoChan
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat429193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abW0 x_abW1))
+               (El []) -> Rep (Pat429193 NP0)
+               (El ((:) x_abW0 x_abW1))
                  -> Rep
                       (Pat4258 ((NA_I (El x_abW0)) :* ((NA_I (El x_abW1)) :* NP0)))
         IdxListGoCaseGoExpr
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat439193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abW2 x_abW3))
+               (El []) -> Rep (Pat439193 NP0)
+               (El ((:) x_abW2 x_abW3))
                  -> Rep
                       (Pat4358 ((NA_I (El x_abW2)) :* ((NA_I (El x_abW3)) :* NP0)))
         IdxListGoCaseGoType
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat449193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abW4 x_abW5))
+               (El []) -> Rep (Pat449193 NP0)
+               (El ((:) x_abW4 x_abW5))
                  -> Rep
                       (Pat4458 ((NA_I (El x_abW4)) :* ((NA_I (El x_abW5)) :* NP0)))
         IdxGoForClause
@@ -1242,8 +1243,8 @@ instance Family Singl FamGoSource CodesGoSource where
                  -> Rep (Pat48GoDefault ((NA_I (El x_abWg)) :* NP0))
         IdxListGoChan
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat499193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abWh x_abWi))
+               (El []) -> Rep (Pat499193 NP0)
+               (El ((:) x_abWh x_abWi))
                  -> Rep
                       (Pat4958 ((NA_I (El x_abWh)) :* ((NA_I (El x_abWi)) :* NP0)))
         IdxGoChan
@@ -1282,8 +1283,8 @@ instance Family Singl FamGoSource CodesGoSource where
                  -> Rep (Pat54GoDefault ((NA_I (El x_abWv)) :* NP0))
         IdxListGoType
           -> \case
-               (El ghc-prim-0.5.2.0:GHC.Types.[]) -> Rep (Pat559193 NP0)
-               (El ((ghc-prim-0.5.2.0:GHC.Types.:) x_abWw x_abWx))
+               (El []) -> Rep (Pat559193 NP0)
+               (El ((:) x_abWw x_abWx))
                  -> Rep
                       (Pat5558 ((NA_I (El x_abWw)) :* ((NA_I (El x_abWx)) :* NP0)))
         IdxGoMethSpec
@@ -1326,15 +1327,15 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoPrel
           -> \case
-               (Rep (Pat29193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat29193 NP0)) -> El []
                (Rep (Pat258 (NA_I (El y_abWN) :* (NA_I (El y_abWO) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abWN) y_abWO)
+                 -> El (((:) y_abWN) y_abWO)
                _ -> error "matchAll"
         IdxListGoDecl
           -> \case
-               (Rep (Pat39193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat39193 NP0)) -> El []
                (Rep (Pat358 (NA_I (El y_abWP) :* (NA_I (El y_abWQ) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abWP) y_abWQ)
+                 -> El (((:) y_abWP) y_abWQ)
                _ -> error "matchAll"
         IdxGoPrel
           -> \case
@@ -1347,9 +1348,9 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoImpSpec
           -> \case
-               (Rep (Pat59193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat59193 NP0)) -> El []
                (Rep (Pat558 (NA_I (El y_abWT) :* (NA_I (El y_abWU) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abWT) y_abWU)
+                 -> El (((:) y_abWT) y_abWU)
                _ -> error "matchAll"
         IdxGoImpSpec
           -> \case
@@ -1383,15 +1384,15 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoCVSpec
           -> \case
-               (Rep (Pat109193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat109193 NP0)) -> El []
                (Rep (Pat1058 (NA_I (El y_abX5) :* (NA_I (El y_abX6) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abX5) y_abX6)
+                 -> El (((:) y_abX5) y_abX6)
                _ -> error "matchAll"
         IdxListGoTypeSpec
           -> \case
-               (Rep (Pat119193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat119193 NP0)) -> El []
                (Rep (Pat1158 (NA_I (El y_abX7) :* (NA_I (El y_abX8) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abX7) y_abX8)
+                 -> El (((:) y_abX7) y_abX8)
                _ -> error "matchAll"
         IdxGoFuncDecl
           -> \case
@@ -1410,9 +1411,9 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoId
           -> \case
-               (Rep (Pat159193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat159193 NP0)) -> El []
                (Rep (Pat1558 (NA_I (El y_abXj) :* (NA_I (El y_abXk) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abXj) y_abXk)
+                 -> El (((:) y_abXj) y_abXk)
                _ -> error "matchAll"
         IdxMaybeGoType
           -> \case
@@ -1421,9 +1422,9 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoExpr
           -> \case
-               (Rep (Pat179193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat179193 NP0)) -> El []
                (Rep (Pat1758 (NA_I (El y_abXm) :* (NA_I (El y_abXn) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abXm) y_abXn)
+                 -> El (((:) y_abXm) y_abXn)
                _ -> error "matchAll"
         IdxGoType
           -> \case
@@ -1470,15 +1471,15 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoMethSpec
           -> \case
-               (Rep (Pat229193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat229193 NP0)) -> El []
                (Rep (Pat2258 (NA_I (El y_abXK) :* (NA_I (El y_abXL) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abXK) y_abXL)
+                 -> El (((:) y_abXK) y_abXL)
                _ -> error "matchAll"
         IdxListGoFieldType
           -> \case
-               (Rep (Pat239193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat239193 NP0)) -> El []
                (Rep (Pat2358 (NA_I (El y_abXM) :* (NA_I (El y_abXN) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abXM) y_abXN)
+                 -> El (((:) y_abXM) y_abXN)
                _ -> error "matchAll"
         IdxGoPrim
           -> \case
@@ -1540,9 +1541,9 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoElement
           -> \case
-               (Rep (Pat299193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat299193 NP0)) -> El []
                (Rep (Pat2958 (NA_I (El y_abYt) :* (NA_I (El y_abYu) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abYt) y_abYu)
+                 -> El (((:) y_abYt) y_abYu)
                _ -> error "matchAll"
         IdxGoElement
           -> \case
@@ -1572,9 +1573,9 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoParam
           -> \case
-               (Rep (Pat349193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat349193 NP0)) -> El []
                (Rep (Pat3458 (NA_I (El y_abYC) :* (NA_I (El y_abYD) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abYC) y_abYD)
+                 -> El (((:) y_abYC) y_abYD)
                _ -> error "matchAll"
         IdxGoParam
           -> \case
@@ -1583,9 +1584,9 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoStmt
           -> \case
-               (Rep (Pat369193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat369193 NP0)) -> El []
                (Rep (Pat3658 (NA_I (El y_abYG) :* (NA_I (El y_abYH) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abYG) y_abYH)
+                 -> El (((:) y_abYG) y_abYH)
                _ -> error "matchAll"
         IdxGoStmt
           -> \case
@@ -1656,21 +1657,21 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoCaseGoChan
           -> \case
-               (Rep (Pat429193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat429193 NP0)) -> El []
                (Rep (Pat4258 (NA_I (El y_abZj) :* (NA_I (El y_abZk) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abZj) y_abZk)
+                 -> El (((:) y_abZj) y_abZk)
                _ -> error "matchAll"
         IdxListGoCaseGoExpr
           -> \case
-               (Rep (Pat439193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat439193 NP0)) -> El []
                (Rep (Pat4358 (NA_I (El y_abZl) :* (NA_I (El y_abZm) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abZl) y_abZm)
+                 -> El (((:) y_abZl) y_abZm)
                _ -> error "matchAll"
         IdxListGoCaseGoType
           -> \case
-               (Rep (Pat449193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat449193 NP0)) -> El []
                (Rep (Pat4458 (NA_I (El y_abZn) :* (NA_I (El y_abZo) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abZn) y_abZo)
+                 -> El (((:) y_abZn) y_abZo)
                _ -> error "matchAll"
         IdxGoForClause
           -> \case
@@ -1700,9 +1701,9 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoChan
           -> \case
-               (Rep (Pat499193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat499193 NP0)) -> El []
                (Rep (Pat4958 (NA_I (El y_abZA) :* (NA_I (El y_abZB) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abZA) y_abZB)
+                 -> El (((:) y_abZA) y_abZB)
                _ -> error "matchAll"
         IdxGoChan
           -> \case
@@ -1737,9 +1738,9 @@ instance Family Singl FamGoSource CodesGoSource where
                _ -> error "matchAll"
         IdxListGoType
           -> \case
-               (Rep (Pat559193 NP0)) -> El ghc-prim-0.5.2.0:GHC.Types.[]
+               (Rep (Pat559193 NP0)) -> El []
                (Rep (Pat5558 (NA_I (El y_abZP) :* (NA_I (El y_abZQ) :* NP0))))
-                 -> El (((ghc-prim-0.5.2.0:GHC.Types.:) y_abZP) y_abZQ)
+                 -> El (((:) y_abZP) y_abZQ)
                _ -> error "matchAll"
         IdxGoMethSpec
           -> \case
