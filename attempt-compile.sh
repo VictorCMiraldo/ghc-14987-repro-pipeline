@@ -1,11 +1,11 @@
 #! /bin/bash
 set -uo pipefail
 
-total_mem=$(free --kilo | sed '2q;d' | sed 's/  */S/g' | cut -dS -f2)
-eighty_perc=$(( $total_mem * 80 / 100 ))
+total_mem=$(free --kilo | sed '2q;d' | sed 's/  */S/g' | cut -dS -f4)
+allowed=$(( $total_mem * 95 / 100 ))
 
-echo "Setting usable memory to 80% of the machine mem ($eighty_perc kbyte)"
-ulimit -m $eighty_perc
+echo "Setting usable memory to 95% of the machine free mem ($allowed kbyte)"
+ulimit -m $allowed
 
 echo "Available example files are:"
 ls -1 Processed/ | awk '{ print NR " : " $0 }'
@@ -26,3 +26,7 @@ echo $ghcopts | sed 's/ /\n/g' | sed 's/^/  /'
 echo ""
 
 time ghc --make $ghcopts $file
+
+echo "Removing object files"
+rm -f Processed/*.hi
+rm -f Processed/*.o
