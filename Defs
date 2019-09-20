@@ -90,6 +90,13 @@ newtype Rep (ki :: kon -> *) (phi :: Nat -> *) (code :: [[Atom kon]])
 
 type PoA (ki :: kon -> *) (phi :: Nat -> *) = NP (NA ki phi)
 
+data View :: (kon -> *) -> (Nat -> *) -> [[ Atom kon ]] -> * where
+  Tag :: {- IsNat n => -} Constr sum n -> PoA ki fam (Lkup n sum) -> View ki fam sum
+
+data Constr :: [k] -> Nat -> * where
+  CS :: Constr xs n -> Constr (x : xs) ('S n)
+  CZ ::                Constr (x : xs) 'Z
+
 --------------------------------------------------------
 --------------------------------------------------------
 --------------------------------------------------------
